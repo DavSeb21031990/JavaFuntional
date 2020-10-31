@@ -1,5 +1,8 @@
 package imperative;
 
+import POJOS.Person;
+import Enum.Gender;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -24,7 +27,7 @@ public class Main {
         List<Person> females = new ArrayList<>();
 
         for (Person person : people) {
-            if (FEMALE.equals(person.gender)) {
+            if (FEMALE.equals(person.getGender())) {
                 females.add(person);
             }
         }
@@ -35,7 +38,7 @@ public class Main {
 
         System.out.println("// Declarative approach");
 
-        Predicate<Person> personPredicate = female -> FEMALE.equals(female.gender);
+        Predicate<Person> personPredicate = female -> FEMALE.equals(female.getGender());
 
         List<Person> females1 = people
                 .stream()
@@ -46,33 +49,4 @@ public class Main {
 
     }
 
-    static class Person {
-        private final String name;
-        private final Gender gender;
-
-        public Person(String name, Gender gender) {
-            this.name = name;
-            this.gender = gender;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Gender getGender() {
-            return gender;
-        }
-
-        @Override
-        public String toString() {
-            return "Person{" +
-                    "name='" + name + '\'' +
-                    ", gender=" + gender +
-                    '}';
-        }
-    }
-
-    enum Gender {
-        MALE, FEMALE
-    }
 }

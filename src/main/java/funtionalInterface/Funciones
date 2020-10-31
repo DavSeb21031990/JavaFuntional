@@ -1,0 +1,7 @@
+Function<T, U>
+BiFunction<T, T, U>
+Consumer<T>
+BiConsumer<T, T>
+Predicate<T>
+BiPredicate<T, T>
+Supplier<U>
